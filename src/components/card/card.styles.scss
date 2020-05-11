@@ -2,30 +2,28 @@
     display: flex;
     justify-content: center;
     flex-direction: row;
-    
 
-    .infected {
+    .common-to-card {
         background-color: aliceblue;
-        border-bottom: 10px solid rgba(0,0,255,0.5);
         margin: 10px 10px;
         width: 15vw;
+
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+            transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+        }
+    }
+
+    .infected {
+        border-bottom: 10px solid rgba(0, 0, 255, 0.5);
     }
 
     .recovered {
-        background-color: aliceblue;
-        border-bottom: 10px solid rgba(0,255,0,0.5);
-        margin: 10px 10px;
-        width: 15vw;
+        border-bottom: 10px solid rgba(0, 255, 0, 0.5);
     }
 
     .deaths {
-        background-color: aliceblue;
-        border-bottom: 10px solid rgba(255,0,0,0.5);
-        margin: 10px 10px;
-        width: 15vw;
+        border-bottom: 10px solid rgba(255, 0, 0, 0.5);
     }
 }
-    
-        
-        
-        

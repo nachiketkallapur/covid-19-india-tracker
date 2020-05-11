@@ -31,7 +31,7 @@ const Card = () => {
     
     return (
         <Grid container className='grid-container'>
-            <Grid item className='infected'>
+            <Grid item className={`infected common-to-card`}>
                 <CardContent>
                     <Typography><b>Infected</b></Typography>
                     <Typography>
@@ -41,7 +41,7 @@ const Card = () => {
                     <Typography>Number of affected from COVID-19</Typography>
                 </CardContent>
             </Grid>
-            <Grid item className='recovered'>
+            <Grid item className={`recovered common-to-card`}>
                 <CardContent>
                     <Typography><b>Recovered</b></Typography>
                     <Typography>
@@ -51,7 +51,7 @@ const Card = () => {
                     <Typography>Number of recoveries from COVID-19</Typography>
                 </CardContent>
             </Grid>
-            <Grid item className='deaths'>
+            <Grid item className={`deaths common-to-card`}>
                 <CardContent>
                     <Typography><b>Deaths</b></Typography>
                     <Typography>
