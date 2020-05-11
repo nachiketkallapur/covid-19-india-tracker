@@ -1,0 +1,31 @@
+.grid-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    
+
+    .infected {
+        background-color: aliceblue;
+        border-bottom: 10px solid rgba(0,0,255,0.5);
+        margin: 10px 10px;
+        width: 15vw;
+    }
+
+    .recovered {
+        background-color: aliceblue;
+        border-bottom: 10px solid rgba(0,255,0,0.5);
+        margin: 10px 10px;
+        width: 15vw;
+    }
+
+    .deaths {
+        background-color: aliceblue;
+        border-bottom: 10px solid rgba(255,0,0,0.5);
+        margin: 10px 10px;
+        width: 15vw;
+    }
+}
+    
+        
+        
+        
