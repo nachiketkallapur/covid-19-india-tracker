@@ -4,6 +4,7 @@ import Card from './components/card/card.component';
 import StatePicker from './components/state-picker/state-picker.component';
 import { fetchData } from './api';
 import Chart from './components/chart/chart.component';
+import Header from './components/header/header.component';
 
 const totalDataUrl = "https://api.rootnet.in/covid19-in/stats/latest";
 
@@ -41,7 +42,8 @@ class App extends React.Component {
         })
 
         return (
-            <div>
+            <div className='component-container'>
+                <Header />
                 <Card changedCardData={changedCardData} />
                 <StatePicker stateList={stateList} handleStateChange={this.handleStateChange} />
                 <Chart stateChoosen={stateChoosen}/>

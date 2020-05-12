@@ -7,9 +7,7 @@ import CountUp from 'react-countup';
 const Card = ({ changedCardData }) => {
     if (Object.keys(changedCardData).length === 0) {
         return (
-            <center>
-                Loading...
-            </center>
+            <></>
         )
     }
 

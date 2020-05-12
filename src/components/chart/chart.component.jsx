@@ -20,36 +20,36 @@ const Chart = ({ stateChoosen }) => {
     if (responseData.length > 0) {
         let summaryArray = responseData.map(({ summary }) => summary);
         summaryArray = summaryArray.reverse();
-        let consizedSummaryArray = summaryArray.filter((item,index) => index <= 19).map(item => item);
+        let consizedSummaryArray = summaryArray.filter((item, index) => index <= 19).map(item => item);
         consizedSummaryArray = consizedSummaryArray.reverse();
-        
-        let regionalArray = responseData.map(({regional}) => regional);
+
+        let regionalArray = responseData.map(({ regional }) => regional);
         regionalArray = regionalArray.reverse();
-        let consizedRegionalArray = regionalArray.filter((item,index) => index <=19).map((item) => item);
+        let consizedRegionalArray = regionalArray.filter((item, index) => index <= 19).map((item) => item);
         consizedRegionalArray = consizedRegionalArray.reverse();
 
-        let tempArray = [], k=0;
+        let tempArray = [], k = 0;
 
-        for(let i=0; i<20 ; i++){
+        for (let i = 0; i < 20; i++) {
             tempArray[i] = {};
         }
 
-        for(let i=0; i<consizedRegionalArray.length; i++){
-            for(let j=0; j<consizedRegionalArray[i].length; j++){
-                if(consizedRegionalArray[i][j].loc.localeCompare(stateChoosen) === 0){
-                    tempArray[k] = Object.assign(tempArray[k],consizedRegionalArray[i][j]);
+        for (let i = 0; i < consizedRegionalArray.length; i++) {
+            for (let j = 0; j < consizedRegionalArray[i].length; j++) {
+                if (consizedRegionalArray[i][j].loc.localeCompare(stateChoosen) === 0) {
+                    tempArray[k] = Object.assign(tempArray[k], consizedRegionalArray[i][j]);
                     k++;
                 }
             }
         }
 
-        const stateChoosenArray = (stateChoosen==='' || stateChoosen==='India') ? consizedSummaryArray : tempArray;
+        const stateChoosenArray = (stateChoosen === '' || stateChoosen === 'India') ? consizedSummaryArray : tempArray;
 
         console.log(stateChoosenArray);
 
         let dateArray = responseData.map(({ day }) => day)
         dateArray = dateArray.reverse();
-        let consizedDateArray = dateArray.filter((item,index) => index <= 19).map(item => item);
+        let consizedDateArray = dateArray.filter((item, index) => index <= 19).map(item => item);
         consizedDateArray = consizedDateArray.reverse();
 
         const data = {
@@ -57,7 +57,7 @@ const Chart = ({ stateChoosen }) => {
             datasets: [
                 {
                     label: "Infected",
-                    data: (stateChoosen==='' || stateChoosen==='India') ? consizedSummaryArray.map((item) => item.total) : stateChoosenArray.map(item => item.totalConfirmed),
+                    data: (stateChoosen === '' || stateChoosen === 'India') ? consizedSummaryArray.map((item) => item.total) : stateChoosenArray.map(item => item.totalConfirmed),
                     pointHoverRadius: 5,
                     borderColor: ['rgba(0,0,255,0.2)'],
                     backgroundColor: ['rgba(0,0,255,0.2)'],
@@ -66,7 +66,7 @@ const Chart = ({ stateChoosen }) => {
                 },
                 {
                     label: "Active",
-                    data: (stateChoosen==='' || stateChoosen==='India') ? consizedSummaryArray.map((item) => item.total - item.deaths - item.discharged) : stateChoosenArray.map(item => item.totalConfirmed - item.deaths - item.discharged),
+                    data: (stateChoosen === '' || stateChoosen === 'India') ? consizedSummaryArray.map((item) => item.total - item.deaths - item.discharged) : stateChoosenArray.map(item => item.totalConfirmed - item.deaths - item.discharged),
                     pointHoverRadius: 5,
                     borderColor: ['rgba(0,0,255,0.5)'],
                     backgroundColor: ['rgba(0,0,255,0.5)'],
@@ -76,7 +76,7 @@ const Chart = ({ stateChoosen }) => {
                 },
                 {
                     label: "Recovered",
-                    data: (stateChoosen==='' || stateChoosen==='India') ? consizedSummaryArray.map((item) => item.discharged) : stateChoosenArray.map(item => item.discharged),
+                    data: (stateChoosen === '' || stateChoosen === 'India') ? consizedSummaryArray.map((item) => item.discharged) : stateChoosenArray.map(item => item.discharged),
                     pointHoverRadius: 5,
                     borderColor: ['rgba(0,255,0,0.5)'],
                     backgroundColor: ['rgba(0,255,0,0.5)'],
@@ -86,7 +86,7 @@ const Chart = ({ stateChoosen }) => {
                 },
                 {
                     label: "Deaths",
-                    data: (stateChoosen==='' || stateChoosen==='India') ? consizedSummaryArray.map((item) => item.deaths) : stateChoosenArray.map(item => item.deaths),
+                    data: (stateChoosen === '' || stateChoosen === 'India') ? consizedSummaryArray.map((item) => item.deaths) : stateChoosenArray.map(item => item.deaths),
                     pointHoverRadius: 5,
                     borderColor: ['rgba(255,0,0,0.8)'],
                     backgroundColor: ['rgba(255,0,0,0.8)'],
@@ -100,47 +100,55 @@ const Chart = ({ stateChoosen }) => {
             title: {
                 display: true,
                 text: "COVID-19 Data Analytics for last 20 days"
-              },
-              scales: {
+            },
+            scales: {
                 yAxes: [
-                  {
-                    scaleLabel: {
-                      display: true,
-                      labelString: 'Number of cases'
-                    },
-                    ticks: {
-                      min: 0,
+                    {
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Number of cases'
+                        },
+                        ticks: {
+                            min: 0,
+                        }
                     }
-                  }
                 ],
                 xAxes: [{
-                  scaleLabel: {
-                    display: true,
-                    labelString: 'Last 20 Days'
-                  }
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Last 20 Days'
+                    }
                 }]
-              }
+            }
         }
-        
+
         return (
-            <div className='chart-container'>
-                <Line data={data} options={options} />
-            </div> 
+            <center>
+                <div className='chart-container'>
+                    <Line data={data} options={options} />
+                </div>
+            </center>
+
         )
     }
-    
+
     else {
-        return(
-            <center>Chart is Loading...Please Wait!</center>
+        return (
+            <center>
+                <big>
+                    Loading... App Please Wait!<br/>
+                    If the problem persists refresh the page
+                </big>
+            </center>
         )
     }
 }
 
 export default Chart;
-    
-    
-    
 
 
-                   
+
+
+
+
 

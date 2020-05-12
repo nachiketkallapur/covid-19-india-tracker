@@ -6,15 +6,14 @@ const StatePicker = ({ handleStateChange, stateList }) => {
 
     if(stateList.length === 0){
         return (
-            <center>
-                <big>Please Wait!</big>
-            </center>
+            <>
+            </>
         )
     }
         
     return (
         <center className='form-control'>
-            <FormControl>
+            <FormControl >
             <InputLabel >Select any one State/U T</InputLabel>
             <NativeSelect defaultValue="India" onChange={(event) => handleStateChange(event.target.value)} className='native-select' >
                 <option value="India">India</option>
