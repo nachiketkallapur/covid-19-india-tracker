@@ -1,10 +1,7 @@
 import React from 'react';
 import './App.scss';
-import Card from './components/card/card.component';
-import StatePicker from './components/state-picker/state-picker.component';
 import { fetchData } from './api';
-import Chart from './components/chart/chart.component';
-import Header from './components/header/header.component';
+import { Header, Card, StatePicker, Chart } from './components';
 
 const totalDataUrl = "https://api.rootnet.in/covid19-in/stats/latest";
 

@@ -14,7 +14,8 @@ const Card = ({ changedCardData }) => {
     const { infected, recovered, deaths, lastUpdate } = changedCardData;
 
     return (
-        <Grid container className='grid-container'>
+        <div xs={12} md={3}>
+            <Grid container className='grid-container'>
             <Grid item className={`infected common-to-card`}>
                 <CardContent>
                     <Typography><b>Infected</b></Typography>
@@ -56,6 +57,7 @@ const Card = ({ changedCardData }) => {
                 </CardContent>
             </Grid>
         </Grid>
+        </div>
     )
 }
 

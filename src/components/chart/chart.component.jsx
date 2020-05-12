@@ -20,20 +20,16 @@ const Chart = ({ stateChoosen }) => {
     if (responseData.length > 0) {
         let summaryArray = responseData.map(({ summary }) => summary);
         summaryArray = summaryArray.reverse();
-        let consizedSummaryArray = summaryArray.filter((item, index) => index <= 19).map(item => item);
-        consizedSummaryArray = consizedSummaryArray.reverse();
-
+        let consizedSummaryArray = summaryArray.filter((item, index) => index <= 19).map(item => item).reverse();
+        
         let regionalArray = responseData.map(({ regional }) => regional);
         regionalArray = regionalArray.reverse();
-        let consizedRegionalArray = regionalArray.filter((item, index) => index <= 19).map((item) => item);
-        consizedRegionalArray = consizedRegionalArray.reverse();
+        let consizedRegionalArray = regionalArray.filter((item, index) => index <= 19).map((item) => item).reverse();
 
         let tempArray = [], k = 0;
-
         for (let i = 0; i < 20; i++) {
             tempArray[i] = {};
         }
-
         for (let i = 0; i < consizedRegionalArray.length; i++) {
             for (let j = 0; j < consizedRegionalArray[i].length; j++) {
                 if (consizedRegionalArray[i][j].loc.localeCompare(stateChoosen) === 0) {
@@ -49,9 +45,8 @@ const Chart = ({ stateChoosen }) => {
 
         let dateArray = responseData.map(({ day }) => day)
         dateArray = dateArray.reverse();
-        let consizedDateArray = dateArray.filter((item, index) => index <= 19).map(item => item);
-        consizedDateArray = consizedDateArray.reverse();
-
+        let consizedDateArray = dateArray.filter((item, index) => index <= 19).map(item => item).reverse();
+        
         const data = {
             labels: consizedDateArray,
             datasets: [
@@ -145,10 +140,3 @@ const Chart = ({ stateChoosen }) => {
 }
 
 export default Chart;
-
-
-
-
-
-
-
