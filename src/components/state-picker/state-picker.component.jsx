@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { FormControl, NativeSelect, InputLabel } from '@material-ui/core';
-import { fetchData } from '../../api';
-
 import './state-picker.styles.scss'; 
 
 const StatePicker = ({ handleStateChange, stateList }) => {
@@ -21,7 +19,7 @@ const StatePicker = ({ handleStateChange, stateList }) => {
             <NativeSelect defaultValue="India" onChange={(event) => handleStateChange(event.target.value)} className='native-select' >
                 <option value="India">India</option>
                 {
-                    stateList.length ? stateList.map(({state}, index) => <option key={index} value={state}>{state}</option>) : "Loading StatePicker ..."
+                    stateList.map(({state}, index) => <option key={index} value={state}>{state}</option>) 
                 }
             </NativeSelect>
         </FormControl>
