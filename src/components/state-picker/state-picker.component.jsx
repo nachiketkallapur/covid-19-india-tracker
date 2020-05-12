@@ -15,7 +15,7 @@ const StatePicker = ({ handleStateChange, stateList }) => {
     return (
         <center className='form-control'>
             <FormControl>
-            <InputLabel >Select any one state </InputLabel>
+            <InputLabel >Select any one State/U T</InputLabel>
             <NativeSelect defaultValue="India" onChange={(event) => handleStateChange(event.target.value)} className='native-select' >
                 <option value="India">India</option>
                 {

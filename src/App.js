@@ -3,6 +3,10 @@ import './App.scss';
 import Card from './components/card/card.component';
 import StatePicker from './components/state-picker/state-picker.component';
 import { fetchData } from './api';
+import Chart from './components/chart/chart.component';
+
+const totalDataUrl = "https://api.rootnet.in/covid19-in/stats/latest";
+
 
 class App extends React.Component {
 
@@ -17,7 +21,7 @@ class App extends React.Component {
     }
 
     async componentDidMount() {
-        this.setState({ stateList: await fetchData("send_state_data"), cardData: await fetchData("send_card_data") });
+        this.setState({ stateList: await fetchData("send_state_data", totalDataUrl), cardData: await fetchData("send_card_data", totalDataUrl) });
     }
 
     handleStateChange = async (state) => {
@@ -26,27 +30,25 @@ class App extends React.Component {
 
     render() {
         const { stateChoosen, stateList, cardData } = this.state;
+
         let changedCardData = {};
         changedCardData = Object.assign(changedCardData, cardData);
 
-        // console.log("stateChoosen = " + stateChoosen);
-
-        stateList.map((data) => {
+        stateList.filter((data) => {
             if (data.state.localeCompare(stateChoosen) === 0) {
                 changedCardData = Object.assign(changedCardData, data);
             }
         })
 
-        // console.log(changedCardData);
-
-
         return (
             <div>
-                <Card changedCardData={ changedCardData } />
+                <Card changedCardData={changedCardData} />
                 <StatePicker stateList={stateList} handleStateChange={this.handleStateChange} />
+                <Chart stateChoosen={stateChoosen}/>
             </div>
         )
     }
 }
 
 export default App;
+
