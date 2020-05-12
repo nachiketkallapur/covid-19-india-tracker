@@ -7,19 +7,8 @@ import { Grid, CardContent, Typography } from '@material-ui/core';
 import CountUp from 'react-countup';
 
 
-const Card = () => {
-    const [covidData, setCovidData] = useState(null);
-
-    useEffect(() => {
-        const fetchFunction = async () => {
-            setCovidData(await fetchData());
-        }
-
-        fetchFunction();
-
-    }, [])
-
-    if (!covidData) {
+const Card = ({ changedCardData }) => {
+    if (Object.keys(changedCardData).length === 0) {
         return (
             <center>
                 Loading...
@@ -27,8 +16,8 @@ const Card = () => {
         )
     }
 
-    const { infected, recovered, deaths, lastUpdate } = covidData;
-    
+    const { infected, recovered, deaths, lastUpdate } = changedCardData;
+
     return (
         <Grid container className='grid-container'>
             <Grid item className={`infected common-to-card`}>
@@ -38,7 +27,7 @@ const Card = () => {
                         <CountUp start={0} end={infected} duration={1.5} separator=',' />
                     </Typography>
                     <Typography>{new Date(lastUpdate).toDateString()}</Typography>
-                    <Typography>Number of affected from COVID-19</Typography>
+                    <Typography>Number of affected by COVID-19</Typography>
                 </CardContent>
             </Grid>
             <Grid item className={`recovered common-to-card`}>

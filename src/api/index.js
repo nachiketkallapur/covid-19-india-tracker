@@ -3,7 +3,7 @@ import axios from 'axios';
 const totalDataUrl = "https://api.rootnet.in/covid19-in/stats/latest";
 const dailyDataUrl = "https://api.rootnet.in/covid19-in/stats/history";
 
-export const fetchData = async () => {
+export const fetchData = async (value) => {
     const response = await axios.get(totalDataUrl);
     const { total, deaths, discharged, confirmedCasesIndian, confirmedCasesForeign } = response.data.data.summary;
     const lastUpdate = response.data.lastOriginUpdate;
@@ -22,15 +22,21 @@ export const fetchData = async () => {
         }
     })
 
-    console.log(stateList);
-    
-    return {
-        infected: total,
-        deaths: deaths,
-        recovered: discharged,
-        casesIndian: confirmedCasesIndian,
-        casesForeign: confirmedCasesForeign,
-        lastUpdate
-    };
+    if(value==="send_card_data"){
+        return {
+            infected: total,
+            deaths: deaths,
+            recovered: discharged,
+            casesIndian: confirmedCasesIndian,
+            casesForeign: confirmedCasesForeign,
+            lastUpdate
+        };
+    }
 
+    else if(value==="send_state_data"){
+        return stateList;
+    }
+
+    
 }
+       

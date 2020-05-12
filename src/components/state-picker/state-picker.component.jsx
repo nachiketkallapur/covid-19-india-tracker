@@ -1,28 +1,37 @@
 import React, { useState, useEffect } from 'react';
-import { FormControl, NativeSelect } from '@material-ui/core';
+import { FormControl, NativeSelect, InputLabel } from '@material-ui/core';
 import { fetchData } from '../../api';
 
-const StatePicker = () => {
+import './state-picker.styles.scss'; 
 
-    const [stateList, setStateList] = useState('');
+const StatePicker = ({ handleStateChange, stateList }) => {
 
-    useEffect(() => {
-        const fetchFunction = async () => {
-            setStateList(await fetchData());
-        }
-
-        fetchFunction();
+    if(stateList.length === 0){
+        return (
+            <center>
+                <big>Please Wait!</big>
+            </center>
+        )
+    }
         
-    }, []);
-
     return (
-        <FormControl className='form-control'>
-            <NativeSelect defaultValue="India"  >
+        <center className='form-control'>
+            <FormControl>
+            <InputLabel >Select any one state </InputLabel>
+            <NativeSelect defaultValue="India" onChange={(event) => handleStateChange(event.target.value)} className='native-select' >
                 <option value="India">India</option>
-
+                {
+                    stateList.length ? stateList.map(({state}, index) => <option key={index} value={state}>{state}</option>) : "Loading StatePicker ..."
+                }
             </NativeSelect>
         </FormControl>
+        </center>
+        
     )
 }
 
 export default StatePicker;
+                
+                
+
+   
