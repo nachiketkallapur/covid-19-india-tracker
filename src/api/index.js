@@ -46,16 +46,7 @@ export const fetchData = async (value, url) => {
             casesIndianValue = casesIndianValue + item.confirmedCasesIndian;
             casesForeignValue = casesForeignValue + item.confirmedCasesForeign;
         }
-        // response.data.data[response.data.data.length - 1].regional.map(item => {
-        //     totalValue = totalValue + item.totalConfirmed;
-        //     deathsValue = deathsValue + item.deaths;
-        //     recoveredValue = recoveredValue + item.discharged;
-        //     casesIndianValue = casesIndianValue + item.confirmedCasesIndian;
-        //     casesForeignValue = casesForeignValue + item.confirmedCasesForeign;
-        // });
-
-        console.log(deathsValue);
-
+        
         if(value==="send_history"){
             return response.data.data;
         }
