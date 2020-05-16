@@ -11,6 +11,8 @@ const Card = ({ changedCardData }) => {
         )
     }
 
+    console.log(changedCardData);
+
     const { infected, recovered, deaths, lastUpdate } = changedCardData;
 
     return (

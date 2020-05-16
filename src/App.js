@@ -4,7 +4,7 @@ import { fetchData } from './api';
 import { Header, Card, StatePicker, Chart } from './components';
 
 const totalDataUrl = "https://api.rootnet.in/covid19-in/stats/latest";
-
+const historyDataUrl = "https://api.rootnet.in/covid19-in/stats/history";
 
 class App extends React.Component {
 
@@ -19,7 +19,7 @@ class App extends React.Component {
     }
 
     async componentDidMount() {
-        this.setState({ stateList: await fetchData("send_state_data", totalDataUrl), cardData: await fetchData("send_card_data", totalDataUrl) });
+        this.setState({ stateList: await fetchData("send_state_data",totalDataUrl), cardData: await fetchData("send_card_data", historyDataUrl) });
     }
 
     handleStateChange = async (state) => {
@@ -28,6 +28,8 @@ class App extends React.Component {
 
     render() {
         const { stateChoosen, stateList, cardData } = this.state;
+
+        console.log(cardData)
 
         let changedCardData = {};
         changedCardData = Object.assign(changedCardData, cardData);

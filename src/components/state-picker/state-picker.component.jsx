@@ -18,7 +18,7 @@ const StatePicker = ({ handleStateChange, stateList }) => {
             <NativeSelect defaultValue="India" onChange={(event) => handleStateChange(event.target.value)} className='native-select' >
                 <option value="India">India</option>
                 {
-                    stateList.map(({state}, index) => <option key={index} value={state}>{state}</option>) 
+                    stateList.map(({state}, index) => (index < stateList.length - 1) ? <option key={index} value={state}>{state}</option> : null) 
                 }
             </NativeSelect>
         </FormControl>
