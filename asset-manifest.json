@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/covid-19-india-tracker/static/css/main.6771a6c1.chunk.css",
-    "main.js": "/covid-19-india-tracker/static/js/main.314c27c9.chunk.js",
-    "main.js.map": "/covid-19-india-tracker/static/js/main.314c27c9.chunk.js.map",
+    "main.css": "/covid-19-india-tracker/static/css/main.83d900a2.chunk.css",
+    "main.js": "/covid-19-india-tracker/static/js/main.917fcfeb.chunk.js",
+    "main.js.map": "/covid-19-india-tracker/static/js/main.917fcfeb.chunk.js.map",
     "runtime-main.js": "/covid-19-india-tracker/static/js/runtime-main.76770231.js",
     "runtime-main.js.map": "/covid-19-india-tracker/static/js/runtime-main.76770231.js.map",
-    "static/js/2.162949dc.chunk.js": "/covid-19-india-tracker/static/js/2.162949dc.chunk.js",
-    "static/js/2.162949dc.chunk.js.map": "/covid-19-india-tracker/static/js/2.162949dc.chunk.js.map",
+    "static/js/2.89cdfab8.chunk.js": "/covid-19-india-tracker/static/js/2.89cdfab8.chunk.js",
+    "static/js/2.89cdfab8.chunk.js.map": "/covid-19-india-tracker/static/js/2.89cdfab8.chunk.js.map",
     "index.html": "/covid-19-india-tracker/index.html",
-    "precache-manifest.42706c728b6a30abd57dfe544546bb5e.js": "/covid-19-india-tracker/precache-manifest.42706c728b6a30abd57dfe544546bb5e.js",
+    "precache-manifest.f07383c1b7ab619aa714a0482889f9f2.js": "/covid-19-india-tracker/precache-manifest.f07383c1b7ab619aa714a0482889f9f2.js",
     "service-worker.js": "/covid-19-india-tracker/service-worker.js",
-    "static/css/main.6771a6c1.chunk.css.map": "/covid-19-india-tracker/static/css/main.6771a6c1.chunk.css.map",
-    "static/js/2.162949dc.chunk.js.LICENSE.txt": "/covid-19-india-tracker/static/js/2.162949dc.chunk.js.LICENSE.txt",
+    "static/css/main.83d900a2.chunk.css.map": "/covid-19-india-tracker/static/css/main.83d900a2.chunk.css.map",
+    "static/js/2.89cdfab8.chunk.js.LICENSE.txt": "/covid-19-india-tracker/static/js/2.89cdfab8.chunk.js.LICENSE.txt",
     "static/media/covid-19-india-tracker(1).jpg": "/covid-19-india-tracker/static/media/covid-19-india-tracker(1).3dcebebb.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.76770231.js",
-    "static/js/2.162949dc.chunk.js",
-    "static/css/main.6771a6c1.chunk.css",
-    "static/js/main.314c27c9.chunk.js"
+    "static/js/2.89cdfab8.chunk.js",
+    "static/css/main.83d900a2.chunk.css",
+    "static/js/main.917fcfeb.chunk.js"
   ]
 }
