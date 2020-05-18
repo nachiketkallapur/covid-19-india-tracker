@@ -2,6 +2,7 @@ import React from 'react';
 import './App.scss';
 import { fetchData } from './api';
 import { Header, Card, StatePicker, Chart } from './components';
+import Tests from './components/tests/tests.component';
 
 const totalDataUrl = "https://api.rootnet.in/covid19-in/stats/latest";
 const historyDataUrl = "https://api.rootnet.in/covid19-in/stats/history";
@@ -43,6 +44,7 @@ class App extends React.Component {
         return (
             <div className='component-container'>
                 <Header />
+                <Tests />
                 <Card changedCardData={changedCardData} />
                 <StatePicker stateList={stateList} handleStateChange={this.handleStateChange} />
                 <Chart stateChoosen={stateChoosen}/>

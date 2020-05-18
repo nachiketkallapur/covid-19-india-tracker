@@ -4,7 +4,7 @@ import { fetchData } from '../../api';
 import { Line } from 'react-chartjs-2';
 
 const historyDataUrl = "https://api.rootnet.in/covid19-in/stats/history";
-let responseData = [];
+let responseData = [], summary;
 
 const Chart = ({ stateChoosen }) => {
 
@@ -12,6 +12,8 @@ const Chart = ({ stateChoosen }) => {
 
         const fetchfunction = async () => {
             responseData = await fetchData("send_history", historyDataUrl);
+            summary = await fetchData("send_card_data", historyDataUrl);
+            console.log(summary);
         }
 
         fetchfunction();
@@ -40,8 +42,6 @@ const Chart = ({ stateChoosen }) => {
         }
 
         const stateChoosenArray = (stateChoosen === '' || stateChoosen === 'India') ? consizedSummaryArray : tempArray;
-
-        console.log(stateChoosenArray);
 
         let dateArray = responseData.map(({ day }) => day)
         dateArray = dateArray.reverse();
