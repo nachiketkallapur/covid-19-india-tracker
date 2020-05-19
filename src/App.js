@@ -20,7 +20,7 @@ class App extends React.Component {
     }
 
     async componentDidMount() {
-        this.setState({ stateList: await fetchData("send_state_data",totalDataUrl), cardData: await fetchData("send_card_data", historyDataUrl) });
+        this.setState({ stateList: await fetchData("send_state_data",totalDataUrl), cardData: await fetchData("send_card_data", totalDataUrl) });
     }
 
     handleStateChange = async (state) => {
