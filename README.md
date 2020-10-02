@@ -1,2 +1,2 @@
 # covid-19-india-tracker
-India Stats of COVID-9
+Keeps you updated on India's Stats of COVID-9
